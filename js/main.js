@@ -1,6 +1,3 @@
-
-
-
 var myapp = function() {
 
     this.mylist = document.getElementById('mylist');
@@ -10,10 +7,10 @@ var myapp = function() {
 
     this.products = [
         {
-            name: 't-shirt',
-            description: 'azul',
+            name: 'T-Shirt',
+            description: 'Azul',
             quantity: 13,
-            price: '$.123'
+            price: '$1.23'
         }
     ]
 
@@ -60,12 +57,13 @@ var myapp = function() {
 
     this.test = function () {
         this.addElement(this.mylist, this.products);
-        componentHandler.upgradeElement(this.mylist);
+        componentHandler.upgradeElement();
     }
 }
 
 
 window.onload = function () {
     this.app = new myapp();
+    console.log("Productos:",app.products)
     app.addProduct(app.productList, 'new element');
 }
