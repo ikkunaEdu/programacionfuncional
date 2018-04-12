@@ -47,7 +47,7 @@ var myapp = function() {
         addbutton.className = 'mdl-card__actions mdl-card--border';
         var a = document.createElement('a');
         a.className = 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect';
-        addbutton.onclick = () => { return app.addProduct(app.productList, 'new element') };
+        addbutton.onclick = () => { return app.addElement(this.mylist, productElement) };
         a.innerHTML = 'Add';
         addbutton.appendChild(a);
         card.appendChild(title);
@@ -63,9 +63,9 @@ var myapp = function() {
         description.className = 'mdl-data-table__cell--non-numeric';
         var quantity = document.createElement('td');
         var price = document.createElement('td');
-        description.innerHTML = listElement[0].name;
-        quantity.innerHTML = listElement[0].quantity;
-        price.innerHTML = listElement[0].price;
+        description.innerHTML = listElement.name;
+        quantity.innerHTML = listElement.quantity;
+        price.innerHTML = listElement.price;
         tr.appendChild(description);
         tr.appendChild(quantity);
         tr.appendChild(price);
@@ -83,5 +83,5 @@ window.onload = function () {
     this.app = new myapp();
     console.log("Productos:",app.products)
     // app.addProduct(app.productList, {name:'Zapatos',descripcion:'De vestir'});
-    app.addProduct(app.productList, app.products[0]);
+    app.products.map( x => app.addProduct(app.productList, x));
 }
